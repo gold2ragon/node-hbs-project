@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+
+<body>
+    <div class="bgf">
+
+        <div class="all divcen w990px">
+
+            {{>header}}
+            <div id="bd" class="clf">
+                <div id="bd" class="bkcnt bkcnt_int br1px brdr10px clf">
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+
+                                    <div class="titbkcnt bgdeg7 bold brdr10px bxshd2 fs18px ico_b mgbot15px p_relative white">
+                                        <a title="{{movie.title}}">
+                                            {{site_keywords.movie_title}} {{movie.title}} ({{movie.release_year}})
+                                        </a>
+                                    </div>
+
+                                    <div class="movie-info-wrap">
+                                        <div class="intsd f_left">
+                                            <div class="peli_img_int mgbot10px">
+                                                <img style="width:175px;height:268px" src="
+                                                {{#if movie.poster_path}}
+                                                https://image.tmdb.org/t/p/w154/{{movie.poster_path}}
+                                                {{else}}
+                                                /static/img/default_poster.png
+                                                {{/if}}
+                                                "
+                                                    title="{{movie.title}} ({{movie.release_year}})" alt="{{movie.title}} ({{movie.release_year}})">
+                                            </div>
+                                        </div>
+
+                                        <div class="content f_right">
+                                            <div class="details mgbot20px p_relative">
+                                                <ul class="dtalist fs14px bold">
+                                                    <li class="ico_b"><span>Titulo Original:</span> {{movie.title}}</li>
+                                                    <li class="ico_b"><span>Genero/s:</span>
+                                                        {{#forEach movie.genres}}
+                                                        {{name}}{{#unless isLast}},{{/unless}}
+                                                        {{/forEach}}
+                                                    </li>
+                                                    <li class="ico_b"><span>Año:</span> {{movie.release_year}}</li>
+                                                    <li class="ico_b"><span>Idioma:</span>
+                                                        <img src="/static/img/es.png">
+                                                        {{#compare ../language_iso "==" "es-ES"}}
+                                                        Castellano
+                                                        {{else}}
+                                                        Latino
+                                                        {{/compare}}
+                                                    </li>
+                                                    <li class="ico_b"><span>Calidad:</span> HD </li>
+                                                </ul>
+
+                                            </div>
+                                            <div class="tit_cnt bold fs18px">Sinopsis de {{movie.title}}</div>
+                                            <div class="sinoptxt mgbot15px">
+                                                <p>
+                                                    {{movie.overview}}
+                                                </p>
+                                                <br>
+                                            </div>
+                                            <div style="text-align: center;"><iframe width="0" height="90" border="0"
+                                                    frameborder="0" scrolling="no"></iframe></div>
+
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                            {{#if movie.videos}}
+                            <tr>
+                                <td>
+
+                                    <div class="pel_tra_bnr brdr10px bkcontentint clf mgbot15px">
+
+                                        <div class="pel_tra2 f_left">
+                                            <ul class="tabs menu bold bxshd1 cntclsx f_left_lia fs14px liabrdr10px lnht30px txt_cen white clf mgbot10px">
+                                                {{#forEach movie.videos}}
+                                                <li js-tab-trigger="{{index}}" style="margin-bottom:8px; margin-right : 8px;"
+                                                    class="{{#if isFirst}} act {{/if}} first_lst last_lst"><a>Ver
+                                                        Pelicula Opcion {{index}}</a></li>
+                                                {{/forEach}}
+                                            </ul>
+
+                                            <div class="tab_container">
+                                                <div id="yt-videos" class="tab_content  br1px brdr10px bkcnt pd15px fs11px">
+
+                                                    <div class="player-wrap">
+                                                        {{#forEach movie.videos}}
+                                                        <div class="{{#if isFirst}} active {{/if}}">
+                                                            <button class="play-btn" to-play="{{key}}">
+                                                                <img src="/static/img/play-button.svg" alt="">
+                                                            </button>
+                                                            <iframe width="100%" height="100%" src="" frameborder="0"
+                                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                                allowfullscreen>
+                                                            </iframe>
+                                                        </div>
+                                                        {{/forEach}}
+                                                    </div>
+
+
+
+                                                    <div id='timeout-msg' class="hidden">
+                                                        <div>
+                                                            <img text="Streaming Gratuito en HD - {{ellipsis movie.title 47}} - {{language_name}}"
+                                                                src="" alt="">
+                                                            <img text="Por favor espere :" src="" alt="">
+                                                        </div>
+                                                        <div>
+                                                            <img height="35px" style="margin: 8px 0;" id='timeout-seconds'>
+                                                        </div>
+
+                                                        <img style="margin-top: 8px" width="48" src="/static/img/loader_dots.svg"
+                                                            alt="">
+                                                    </div>
+
+
+                                                    <div style="text-align:center;">
+                                                        {{!-- <iframe src="https://www.locopelis.tv/video2/WVVoU01HTklUVFpNZVRsMlkwZFdkV0pIT1doYVF6VnFZbms1YkdKWFNteGFRemxoWW0weGJGUXdaRmRhYldSaFVWTTVUMDFJV1hoT1F6VnJUVE5OZUUwelNqQk5SamgwV0ROa00yUjVOWE5pTWs1MlkwZFdjMkZZVFhWWk1qbDBURzB4ZDA1QlBUMD0rUg==.html"
+                                                            scrolling="no" frameborder="0" width="700" height="430"
+                                                            allowfullscreen="true"></iframe>
+                                                        --}}
+                                                        {{!-- <div style="text-align: center;"><iframe width="728"
+                                                                height="90" border="0" frameborder="0" scrolling="no"></iframe></div>
+                                                        --}}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            {{/if}}
+
+                        </tbody>
+                    </table>
+                    <div class="intsd f_left">
+                        <div class="bnr txt_cen">
+                        </div>
+                    </div>
+                    <div class="content f_right">
+                        <div class="tagsvid txt_cen bgdeg9 brdr10px bold fs16px lnht20px mgbot15px">
+                            Ver <strong>{{movie.title}}</strong> ({{movie.release_year}}), Watch <strong>{{movie.title}}</strong>
+                            ({{movie.release_year}})
+                            free, <strong>{{movie.title}}</strong> ({{movie.release_year}}) sin limite de tiempo,
+                            <strong>La novia
+                                del desierto</strong>
+                            ({{movie.release_year}}) subtitulada online, <strong>{{movie.title}}</strong>
+                            ({{movie.release_year}}) online, Ver
+                            <strong>La novia
+                                del desierto</strong> ({{movie.release_year}}) online, Ver <strong>{{movie.title}}</strong>
+                            ({{movie.release_year}})
+                            online flv,
+                            Ver <strong>{{movie.title}}</strong> ({{movie.release_year}}) no megavideo, Ver <strong>La
+                                novia del
+                                desierto</strong>
+                            ({{movie.release_year}}) online gratis, <strong>{{movie.title}}</strong>
+                            ({{movie.release_year}}) online latino, <strong>La
+                                novia del
+                                desierto</strong> ({{movie.release_year}}) online español, Ver <strong>{{movie.title}}</strong>
+                            ({{movie.release_year}}) online
+                            en español, Ver <strong>{{movie.title}}</strong> en español online.
+                        </div>
+                    </div>
+                </div>
+
+
+                {{>footer}}
+
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script src="/static/js/movie.js"></script>
+
+</html>

@@ -1,0 +1,54 @@
+<div id="hd" class="clf p_relative pdtop10px">
+    <div class="hd_cnt_1 clf">
+        <a class="logo f_left ovw p_relative" href="/" title=""><img class="p_absolute" src="/static/img/bg.png"
+                alt="Repelis"></a>
+        <div class="hdrgt f_right pdtop5px">
+            <div class="frmsrch f_right ovw mgbot5px">
+                <form action="{{site.search_action}}" method="get">
+                    <p class="bginptxt f_left ico pd5px"><input class="inp_txt bold" value="{{searchValue}}" placeholder="Buscador" title="Buscador"
+                            type="text" name="s"></p>
+                    <p class="inpbtnp f_right"><input class="inp_btn bold ico white" value="Buscar !!" type="submit"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{#if featured_movies}}
+        <div class="hd_cnt_2 p_relative">
+            <div class="mascota ico p_absolute"></div>
+            <h1 class="tithd bold fs18px lnht30px ico_b pdtop10px">Repelis, Ver peliculas completas</h1>
+            <ul id="sldpels" class="f_left_li hidden" style="width: 999999px; position: relative; left: -126px;">
+        
+                {{#forEach (arrSlice featured_movies 0 18)}}
+                <li>
+                    <div class="peli_img p_relative">
+                        <div class="peli_img_img">
+                            <a href="{{link}}">
+                                <div class="imagentipo" style="background: url('/static/img/estreno.png') repeat scroll 0 0 transparent;"></div>
+                                <img src="
+                                        {{#if poster_path}}
+                                        https://image.tmdb.org/t/p/w154/{{poster_path}}
+                                        {{else}}
+                                        /static/img/default_poster.png
+                                        {{/if}} "
+                                    title="{{title}}" alt="{{title}}">
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                {{/forEach}}
+        
+            </ul>
+            <br>
+        
+        </div>
+
+        <ul class="menu bold bxshd1 cntclsx f_left_lia fs14px liabrdr10px lnht30px txt_cen white">
+            <br>
+            <li><a href="/" title="Repelis">Peliculas</a></li>
+        </ul>
+    {{/if}}
+
+
+</div>
+

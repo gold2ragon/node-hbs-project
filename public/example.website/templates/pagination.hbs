@@ -1,0 +1,41 @@
+<ul class="nav bgdeg4 bold brdr10px bxshd2 clr fs18px lnht30px liasbrdr10px lstinl pd10px txt_cen white">
+    {{#if pagination}}
+        {{#if pagination.pages}}
+            {{#forEach pagination.pages}}
+                {{#compare type '==' 'ellipsis'}}
+                    <span class="expand">...</span>
+                {{/compare}}
+                
+                {{#compare type '==' 'prev'}}
+                    <li>
+                        <a rel="prev" href="{{link}}">
+                            <
+                        </a>
+                    </li>
+                {{/compare}}
+
+                {{#compare type '==' 'next'}}
+                    <li>
+                        <a rel="prev" href="{{link}}">
+                            >
+                        </a>
+                    </li>
+                {{/compare}}
+
+                {{#compare type '==' 'page'}}
+                    <li>
+                        <a href="{{link}}" title="{{page}}" rel="nofollow">
+                            {{#if is_current }}
+                                <span>
+                                    <b>{{page}}</b>
+                                </span>
+                            {{else}}
+                                {{page}}
+                            {{/if}}
+                        </a>
+                    </li>
+                {{/compare}}
+            {{/forEach}}
+        {{/if}}
+    {{/if}}
+</ul>

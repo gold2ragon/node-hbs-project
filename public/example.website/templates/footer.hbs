@@ -1,0 +1,31 @@
+<div id="ft" class="white">
+    <div class="ft_cnt_1 txt_cen">
+        <p><strong>Repelis - Repelis - Peliculas Online en Calidad Full HD</strong><br>
+            <strong>Descargar Peliculas Gratis En Español Latino</strong> -
+            <strong>Bajar Peliculas Gratis</strong> -
+            <strong>Ver Peliculas Online</strong><br>
+        </p>
+        <center>
+            {{#if site.footer_links}}
+                {{#forEach site.footer_links}}
+                    <a href="{{link}}">{{display_name}}</a>
+                {{/forEach}}
+            {{/if}}
+        </center>
+    </div>
+    <div class="ft_cnt_2 pdtop10px">
+        <a class="logo f_right ovw p_relative" href="#" title="Repelis"><img class="p_absolute" src="/static/img/bg.png"
+                alt="Repelis"></a>
+    </div>
+</div>
+
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="/static/js/slider.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //sldpels
+        $('#sldpels').bxSlider({ displaySlideQty: 7, moveSlideQty: 1, controls: true });
+        $('#sldpels').removeClass('hidden');
+    });
+</script>

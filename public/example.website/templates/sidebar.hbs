@@ -1,0 +1,54 @@
+<div id="sd" class="f_left">
+
+    {{#if genres}}
+
+    <div class="bk brdr10px br1px mgbot20px pd10px">
+        <div class="bk_tit bk_tit_ico1 bgdeg4 bold brdr10px bxshd2 fs18px ico_b mgbot10px p_relative white">
+            Peliculas <span class="d_block">Selecciona tu categoria</span>
+        </div>
+
+        <ul class="icoscat bold clf icos fs14px f_left_li liabrdr10px">
+            {{#forEach genres}}
+            <li><a title="{{name}}" href="{{link}}"><strong>{{name}}</strong></a></li>
+            {{/forEach}}
+        </ul>
+    </div>
+    {{/if}}
+
+
+    {{#if featured_genre.length}}
+    <div class="bk brdr10px br1px mgbot20px pd10px">
+        <div class="bk_tit bk_tit_ico2 bgdeg4 bold brdr10px bxshd2 fs18px ico_b mgbot10px p_relative white">Genero
+            destacado
+            <span class="d_block">{{featured_genre.genre.name}}</span></div>
+        <ul class="icospel bold clf icos fs14px liabrdr10px">
+            {{#forEach featured_genre.movies}}
+                <li>
+                    <a href="{{link}}" title="{{title}}">
+                    {{ellipsis title 21}}
+                    </a>
+                </li>
+            {{/forEach}}
+        </ul>
+    </div>
+    {{/if}}
+
+    
+    {{#if featured_movies.length }}
+        <div class="bk brdr10px br1px mgbot20px pd10px">
+            <div class="bk_tit bk_tit_ico2 bgdeg4 bold brdr10px bxshd2 fs18px ico_b mgbot10px p_relative white">Las
+                mas Votadas <span class="d_block">Peliculas Votadas</span></div>
+        
+            <ul class="icospel bold clf icos fs14px liabrdr10px">
+                {{#forEach (arrSlice featured_movies 0 8)}}
+                <li><a href="{{link}}" title="{{title}}">{{ellipsis title
+                        21}}</a></li>
+                {{/forEach}}
+            </ul>
+        </div>
+    {{/if}}
+
+
+
+
+</div>

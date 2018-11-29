@@ -1,0 +1,241 @@
+.hidden {
+    visibility: hidden;
+}
+
+.search-form {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+}
+
+.search-form input { 
+    margin-right: 8px;
+}
+
+.search-form button {
+    min-width: 100px;
+    padding: 8px;    
+    border-radius: 8px;
+    /* padding: 4px; */
+    background-image: -webkit-gradient(linear,left top, left bottom,from(#36dafe),to(#299ee4));
+    background-image: linear-gradient(#36dafe,#299ee4);
+    border: none;
+    color: white;
+    font-size: 14px;
+    margin-right: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+.search-form button:hover {
+  opacity: .7;
+}
+
+.peli_bx .titpeli, .peli_bx .titpeli a {
+    white-space: nowrap;
+}
+
+#timeout-msg {
+    position: absolute;
+    background: black;
+    color: white;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /* display: flex; */
+    width: 243px;
+    height: 75px;
+    padding: 16px;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+#timeout-msg span{
+    color: white;
+    font-size: 21px;
+}
+/* Wrap youtube */
+.player-wrap {
+  margin: 24px auto;
+  margin-bottom: 8px;
+  max-width: 700px;
+  width: 100%;
+  height: 450px;
+  position: relative;
+  background: black; }
+  .player-wrap div {
+    width: 100%;
+    height: 100%;
+    display: none; }
+    .player-wrap div iframe {
+      border: none; }
+    .player-wrap div.active {
+      display: block; }
+    .player-wrap div .play-btn {
+      width: 100px;
+      height: 100px;
+      background: black;
+      border: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: 3;
+      cursor: pointer;
+      -webkit-transition: .2s ease transform;
+      transition: .2s ease transform; }
+      .player-wrap div .play-btn img {
+        -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+        -webkit-transition: .2s ease filter;
+        transition: .2s ease filter;
+        width: 100%; }
+      .player-wrap div .play-btn:hover {
+        -webkit-transform: scale(1.1);
+                transform: scale(1.1); }
+        .player-wrap div .play-btn:hover img {
+          -webkit-filter: none;
+                  filter: none; }
+
+#yt-videos {
+  position: relative; }
+  #yt-videos > img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 1; }
+  #yt-videos iframe {
+    position: absolute;
+    z-index: 2; }
+
+
+.w990px {
+    width: 100%;
+    max-width: 990px;
+}
+
+
+.movie-info-wrap {
+    display: flex;
+}
+
+.movie-info-wrap .content {
+    width: auto;
+}
+
+.movie-info-wrap .intsd {
+    margin-right: 8px;
+}
+
+@media(max-width: 990px) {
+    #hd .hd_cnt_2 , #hd ul, #sd {
+        display: none;
+    }
+
+    #hd {
+        height: auto;
+    }
+
+    #cn {
+        width: 100%;
+    }
+
+    #bd {
+        margin-top: 8px;
+        border-radius: 0;
+    }
+
+    #cn div .peliculas {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+                justify-content: center;
+    }
+
+    .hd_cnt_1 {
+        display: flex;
+    }
+
+    .bk_tit {
+        margin: 16px;
+    }
+
+    #bd .content.f_right {
+        width: 100%;
+    }
+
+}
+
+@media(max-width: 768px) {
+    .hd_cnt_1 {
+        justify-content: center;
+    }
+
+    .hd_cnt_1 .hdrgt{
+        display: none;
+    }
+
+    .movie-info-wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #yt-videos {
+        padding: 0;
+    }
+
+    .player-wrap {
+        height: 300px;
+    }
+
+    .bkcnt_int .titbkcnt {
+        padding-right: 0;
+    }
+}
+
+@media(max-width: 400px) {
+    #timeout-msg {
+        width: auto;
+        height: 150px;
+        left: 16px;
+        right: 16px;
+    }
+
+    #timeout-msg img{
+        height: 14px;
+    }
+
+
+}
+

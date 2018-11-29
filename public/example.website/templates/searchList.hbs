@@ -1,0 +1,63 @@
+<div class="bkcnpels br1px brdr10px mgtop15px">
+    <div class="titbkcnt bgdeg7 bold brdr10px bxshd2 fs18px ico_b mgbot15px p_relative white">
+        {{displayTitle}}
+    </div>
+
+    <br>
+
+    <ul class="peliculas clf cntclsx4 f_left_li">
+
+
+        {{#forEach data}}
+        <li class="peli_bx br1px brdr10px ico_a">
+            <h2 class="titpeli bold ico_b">
+                <a href="{{link}}" title="{{title}}">
+                    {{ellipsis title 17}}
+                </a>
+            </h2>
+            <div class="peli_img p_relative">
+                <div class="peli_img_img">
+                    <a href="{{link}}" title="{{title}}">
+                        <img alt="{{title}}" src="
+                                                                            {{#if poster_path}}
+                                                                            https://image.tmdb.org/t/p/w154/{{poster_path}}
+                                                                            {{else}}
+                                                                            /static/img/default_poster.png
+                                                                            {{/if}}"
+                            title="{{title}} ({{release_year}})" alt="{{title}} ({{release_year}})">
+                    </a>
+                </div>
+                <div class="peli_txt bgdeg8 brdr10px bxshd2 ico_b p_absolute pd15px white">
+                    <div class="plt_tit bold fs14px mgbot10px"><span>Sinopsis</span>
+                        <h2 class="bold d_inline fs14px">{{title}}</h2>
+                    </div>
+                    <p>
+                        {{ overview }}
+                    </p>
+                    <div class="plt_ft clf mgtop10px">
+                        <div class="stars f_left pdtop10px"><strong>Calidad</strong>: HD</div>
+                        <br><br>
+                        <div class="stars f_left pdtop10px"><strong>Idioma</strong>:
+                            <img src="/static/img/es.png">
+                            {{#compare ../language_iso "==" "es-ES"}}
+                            Castellano
+                            {{else}}
+                            Latino
+                            {{/compare}}
+                        </div>
+                        <a class="vrfich bold ico f_right" href="{{link}}"
+                            title="">Ver
+                            Pelicula</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        {{/forEach}}
+
+
+    </ul>
+
+    {{>pagination prefix=prefix suffix=suffix}}
+
+</div>

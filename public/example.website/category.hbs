@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+
+<body>
+    <div class="bgf">
+
+        <div class="all divcen w990px">
+
+            {{>header searchValue=search}}
+
+            <div id="bd" class="clf">
+
+                {{>sidebar}}
+
+                <div id="cn" class="f_right">
+
+                    <div class="bk_tit bk_tit_ico4 bgdeg4 bold brdr10px bxshd2 fs18px ico_b mgbot10px p_relative white">
+                        <form action="{{site.search_action}}" method="get" class="search-form">
+                            <input style="width: 100%; box-sizing: border-box; padding: 6px; border-radius: 6px; border: none;"
+                                name="s" value="{{search}}" type="text" placeholder="Buscar Película..." class="form-control"
+                                autocomplete="off">
+                            <button>
+                                Buscar !!
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="bkbnrc">
+                        <div style="text-align: center;"><iframe width="0" height="90" border="0" frameborder="0"
+                                scrolling="no"></iframe></div>
+
+                    </div>
+
+                    {{>searchList prefix=(append (append '/categoria/' genre.hash) "/pagina") displayTitle=genre.name data=page_movies }}
+
+                </div>
+            </div>
+
+
+            {{>footer}}
+        </div>
+
+    </div>
+</body>
+
+</html>
