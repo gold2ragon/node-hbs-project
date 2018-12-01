@@ -28,4 +28,4 @@ Just run
 ```
     node app.js
 ```
-![Preview1]('REPELIS.png')
+![Preview1](./REPELIS.png)
