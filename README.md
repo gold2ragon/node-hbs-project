@@ -1,3 +1,6 @@
+# Video Site
+![Preview1](public/REPELIS.png)
+
 # Requeriments
 
 - Node.js 8.x or higher
@@ -28,4 +31,4 @@ Just run
 ```
     node app.js
 ```
-![Preview1](./REPELIS.png)
+
